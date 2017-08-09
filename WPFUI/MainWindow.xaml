@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
+        FontSize="11pt"
         Title="Abe's Awesome Action" Height="768" Width="1024">
     
     <Grid>
@@ -20,8 +21,69 @@
         </Grid.ColumnDefinitions>
 
 		<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="CornflowerBlue"></Label>
-        <Label Grid.Row="1" Grid.Column="0" Content="Player Data" Background="DarkTurquoise"></Label>
-        <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="LightGoldenrodYellow"></Label>
+        
+        <!--<Label Grid.Row="1" Grid.Column="0" Content="Player Data" Background="DarkTurquoise"></Label>-->
+        <Grid Grid.Row="1" Grid.Column="0" Background="DarkTurquoise">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Class:"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Hit Points:"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Gold:"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="XP:"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Level:"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
+            <Button  Grid.Row="6" Content="Add XP" Click="ButtonBase_OnClick"></Button>
+
+        </Grid>
+        
+        <!--<Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="LightGoldenrodYellow"></Label>-->
+        <Grid Grid.Row="1" Grid.Column="1" Background="LightGoldenrodYellow">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="1" 
+                    BorderBrush="Gainsboro" 
+                    BorderThickness="1">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                               HorizontalAlignment="Center"
+                               Text="{Binding CurrentLocation.Name}"/>
+                    <TextBlock Grid.Row="2"
+                               HorizontalAlignment="Center"
+                               Text="{Binding CurrentLocation.Description}"/>
+                </Grid>
+            </Border>
+        </Grid>
+
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="BurlyWood"></Label>
         <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="LightSkyBlue"></Label>
 
