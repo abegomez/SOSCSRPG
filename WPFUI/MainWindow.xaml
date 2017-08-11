@@ -79,14 +79,14 @@
                     <TextBlock Grid.Row="0"
                                HorizontalAlignment="Center"
                                Text="{Binding CurrentLocation.Name}"/>
-                    
+
                     <Image Grid.Row="1"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Height="125"
                            Width="125"
                            Source="{Binding CurrentLocation.ImageName}"/>
-                    
+
                     <TextBlock Grid.Row="2"
                                HorizontalAlignment="Center"
                                Text="{Binding CurrentLocation.Description}"
@@ -95,8 +95,21 @@
             </Border>
         </Grid>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="BurlyWood"></Label>
-        
+        <Grid Grid.Row="2" Grid.Column="0" Background="BurlyWood">
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>               
+            </TabControl>
+        </Grid>
+
         <Grid Grid.Row="2" Grid.Column="1" Background="LightSkyBlue">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -135,6 +148,5 @@
                         Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"/>
             </Grid>
         </Grid>
-
     </Grid>
 </Window>
