@@ -37,6 +37,19 @@ namespace WPFUI
             _gameSession.CurrentPlayer.ExperiencePoints = _gameSession.CurrentPlayer.ExperiencePoints + 10;
         }
 
+        private void OnClickAttack(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void OnClickPotion(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void OnClickRun(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
         {
             _gameSession.MoveNorth();
