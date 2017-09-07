@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Engine.Models;
+
 namespace Engine.Factories
 {
     public static class MonsterFactory
@@ -15,25 +16,25 @@ namespace Engine.Factories
                 case 1:
                     Monster snake =
                         new Monster("Snake", "Snake.png", 4, 4, 1, 2, 5, 1);
-                    AddLootItem(snake, 9001, 20);
-                    AddLootItem(snake, 9002, 70);
-                    AddLootItem(snake, 1002, 10);
+                    AddLootItem(snake, 9001, 25);
+                    AddLootItem(snake, 9002, 75);
+                    //AddLootItem(snake, 1002, 10);
                     return snake;
 
                 case 2:
                     Monster rat =
                         new Monster("Rat", "Rat.png", 5, 5, 1, 2, 5, 1);
-                    AddLootItem(rat, 9003, 20);
-                    AddLootItem(rat, 9004, 70);
-                    AddLootItem(rat, 1002, 10);
+                    AddLootItem(rat, 9003, 25);
+                    AddLootItem(rat, 9004, 75);
+                    //AddLootItem(rat, 1002, 10);
                     return rat;
 
                 case 3:
                     Monster giantSpider =
                         new Monster("Giant Spider", "GiantSpider.png", 10, 10, 1, 4, 10, 3);
-                    AddLootItem(giantSpider, 9005, 20);
-                    AddLootItem(giantSpider, 9006, 70);
-                    AddLootItem(giantSpider, 1002, 10);
+                    AddLootItem(giantSpider, 9005, 25);
+                    AddLootItem(giantSpider, 9006, 75);
+                    //AddLootItem(giantSpider, 1002, 10);
                     return giantSpider;
 
                 default:
@@ -43,9 +44,11 @@ namespace Engine.Factories
 
         private static void AddLootItem(Monster monster, int itemID, int percentage)
         {
-            if(RandomNumberGenerator.NumberBetween(1, 100) <= percentage)
+            Console.WriteLine("this item added: " + itemID);
+            if (RandomNumberGenerator.NumberBetween(1, 100) <= percentage)
             {
                 monster.Inventory.Add(new ItemQuantity(itemID, 1));
+                
             }
         }
     }

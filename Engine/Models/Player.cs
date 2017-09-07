@@ -89,7 +89,7 @@ namespace Engine.Models
         public void AddItemToInventory(GameItem item)
         {
             Inventory.Add(item);
-
+            
             OnPropertyChanged(nameof(Weapons));
         }
     }
